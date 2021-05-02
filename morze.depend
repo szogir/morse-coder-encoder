@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1542968550 source:c:\users\szric\documents\morze\morze\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	"megszamol.h"
+	"listas.h"
+	"debugmalloc.h"
+
+1542926910 source:c:\users\szric\documents\morze\morze\lista_kiir.c
+	<stdio.h>
+	<stdlib.h>
+	"lista_kiir.h"
+
+1542927139 c:\users\szric\documents\morze\morze\lista_kiir.h
+
+1542927588 source:c:\users\szric\documents\morze\morze\lista_vegere.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"lista_vegere.h"
+
+1542927611 source:c:\users\szric\documents\morze\morze\abc_felszabad.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	"abc_felszabad.h"
+
+1542927949 c:\users\szric\documents\morze\morze\lista_vegere.h
+
+1542927929 c:\users\szric\documents\morze\morze\abc_felszabad.h
+
+1542930572 source:c:\users\szric\documents\morze\morze\megszamol.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"megszamol.h"
+	"debugmalloc.h"
+
+1542927898 c:\users\szric\documents\morze\morze\megszamol.h
+
+1542930572 source:c:\users\szric\documents\morze\morze\listas.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"listas.h"
+	"debugmalloc.h"
+
+1542928746 c:\users\szric\documents\morze\morze\listas.h
+
+1542930436 source:c:\users\szric\documents\morze\morze\debugmalloc.c
+	<stdbool.h>
+	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+	<stdarg.h>
+	"debugmalloc.h"
+
+1542930440 c:\users\szric\documents\morze\morze\debugmalloc.h
+	<stdlib.h>
+	<stdbool.h>
+

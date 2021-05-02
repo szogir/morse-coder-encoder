@@ -1,0 +1,117 @@
+
+Morze
+Programozói dokumentáció
+
+Morzekód
+
+Minden latin betűnek, arab számnak és egyéb írásjelnek van egy hozzá tartozó, 
+rövid és hosszú jelekből álló kódja, melynek jelhossza egytől hatig terjed.
+Az egyételmű megfeleltetés miatt van lehetőségünk latinról morzére, illetve 
+visszafele is kódolni.
+
+Adatszerkezet választás
+
+Az egyértelmű megfeleltetéshez a latin karakterek egyszerű láncolt listában 
+vannak eltárolva a morzekódjukkal együtt. A lista beolvasása egy tetszőlegesen 
+választott fájlból történik, ezért a fájl módosításával könnyen változtatható a 
+megfeleltetés, illetve az is, hogy  hány darab és mely karakterek szükségesek.
+Ezért dokumentumban termézetes mindegy, hogy a betű valóban abc sorredben vannak, 
+vagy sem. Ez nem befolyásolja a működést.
+
+	typedef struct Betu{
+		char norm[2];
+		char jel[7];
+		struct Betu*kov;
+	}Betu;
+
+A program a képes a bemenetről érkező szöveget kisbetűsíteni, majd azt dinamikusan foglalt 
+tömbben eltárolni.
+
+A program fő függvényei
+
+	int megszamol(FILE *fajl,char tetsz)
+	
+	A függvény paraméterül kap egy fájlra mutató pointert és egy karaktert, aminek 
+	a darabszámára kíváncsiak vagyunk a fájlban. Létrehoz egy kezdetben 0 értékű 
+	integer változót a darabszámnak, majd egy ciklusal végigmegy a fájlon, karakterreit 
+	egyesével beolvassa, és megvizsgálja, hogy megegyeznek-e a keresettel. Ha igen, 
+	egyel növeli a darabszámot. Végül visszatér a darabszámmal.
+	
+	void lista_kiir(Betu *lista)
+	
+	(a forráskódban ki van kommentezve a hívása, de használható a beolvasás 
+	helyességének ellenőrzésére, vagy ha erre van igénye a felhasználónak)
+	Paraméterül egy a láncolt litára mutató pointert kap. Létrehoz egy futó pointert, 
+	mely egy ciklusban végigmegy a listán, így a lista minden elemét kiíratja.
+	
+	Betu* lista_vegere(Betu* lista, char* ujnorm, char* ujjel)
+	
+	A Betu tipus a lancol lista (abc) elemeinek tipusa (fent). A függvény új elemet 
+	fűz a listához (abc). Ehhez egy a listára mutató pointert, illetve két darab 
+	karaktertömbre mutató pointert kap paraméterül, amelyek a listához következően 
+	hozzáfűzni kívánt listaelem két adattagját tartalmazzák. A függvény lefoglalja 
+	a helyet az új elemnek, abban elhelyezi a paraméterül kapott adatokat, majd a 
+	lista végére fűzi (futó pointer, ciklus). A fuggvény a bővített lista (abc) elejére 
+	mutató pointerrel tér vissza.
+	
+	void abc_felszabad(Betu* lista)
+	
+	A függvény egy listára mutató pointert kap paraméterül. Ciklusban mindig a lista 
+	végéről veszi az utolsó elemet, és felszabadítja. Így memóriaszivárgás nélül szabadítja 
+	fel az egész listát.
+	
+	A megszamol fuggveny a megszamol modulban, az osszes tobbi fuggveny a listas modulban van.
+	
+Kódolás
+
+	A program leglényegesebb része a konverzió irányának megfelő kódolás. Az irány egy 
+	egyszerű switchcsel történik.
+	
+	Morzéról-->latinra
+	
+	Egy ciklus végigmegy a morze szövegen és egyesével beolvassa az egyes betűkódokat, 
+	amelyek jelközzel el vanna választva egymástól. Ha a szóköznek megfelelő kódot 
+	olvasott be akkor szóközt ír ki a kimenetre. 
+		Belső ciklus: megvizsgálja hogy a beolvasott betűkód melyik betűnek felel meg 
+		a listában, kiírja a megfelelő betűt a kimenetre.
+	
+		while (!feof(be)){
+							fscanf(be,"%s ",bejel);
+							if (!strcmp(bejel,".......")){
+								fprintf(ki," ");
+							}else{
+								for(futo=l; futo!=NULL; futo=futo->kov){
+									if(!strcmp(bejel,futo->jel)){
+										fprintf(ki,"%s",futo->norm);
+										}
+									}
+								}
+							}
+
+
+	Latinról-->morzéra
+	
+	Egy ciklus karakterenként olvassa be a latin szöveget, ha szóközt talál, 
+	az annak megfelelő kódot írja ki.
+		Belső ciklus: megvizsgája, hogy a beolvasott karakternek melyik morzekód felel 
+		meg a listában, kiírja a morzekódot és egy jelközt a kimenetre.
+		
+		for(int i=0; kisszoveg[i]!='\0';i++){                             
+                    if (isspace(kisszoveg[i])){
+                        fprintf(ki,"....... ");
+                    }
+                    for(iter=l; iter!=NULL; iter=iter->kov){
+                        if(kisszoveg[i]== *iter->norm){
+                            fprintf(ki,"%s",iter->jel);
+                            fprintf(ki," ");
+                        }
+                    }
+                }
+
+A bemenet, kimenet és az abc-t tartalmazó fájl tetszőlegesen választott txt.
+
+
+
+
+
+

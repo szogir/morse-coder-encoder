@@ -1,0 +1,39 @@
+
+Morze
+Felhasználói dokumentáció
+
+A program feladata
+
+A program a felhasználó kívánalma szerint kétféle mûködésre képes:
+(1.) egy tetszõlegesen választott bemeneti txt fájlból beolvassa az angol abc karaktereit, 
+valamint néhány egyéb ()"-?!:., karaktert tartalmazó szöveget, azt átkonvetálja Morze-szerû kódra,
+majd kiírja egy tetszõlegesen választott kimeneti txt fájlba fájlba.
+Vagy
+(2.) egy tetszõlegesen választott bemeneti txt fájlból egy Morze-szerû kódot olvas be, 
+ebbõl elõállít egy, az angol abc karaktereit, valamint néhány egyéb ()"-?!:., karaktert 
+tartalmazó szöveget,majd kiírja egy tetszõlegesen választott kimeneti txt fájlba.
+Továbbá
+a program megszámolja, hogy a felhasználó által tetszõlegesen kiválaszott karakterbõl, 
+tá, vagy ti jelbõl hányat tartalmaz a bemenet, valamint kimenet és ezt a képernyõre kiírja.
+A kódoláshoz szükséges karaktereket és azok Morze kódjait egy tetszõlegesen választott 
+txt fájlból olvassa be a program a futás megkezdésekor.
+A Morze-szerû kódom hosszú tá (+), rövid ti (=), szóköz (.......), betûköz ( ) jeleket tartalmaz.
+
+
+A program használata
+
+A program futásának indulásakor a felhasználónak meg kell adnia a kódoláshoz szükséges 
+ABC-t tartalmazó, valamint a be- és kimeneti txt fájlok nevét kiterjesztéssel együtt.
+(Fontos, hogy a program futtatása elõtt a felhasználó gyõzõdjön meg arról, 
+hogy a kimeneti fájl üres legyen.)
+A program elvégzi az abc beolvasását.
+Ezt követõen meg kell adni, hogy mely karakter darabszámára kíváncsi a bemeneten.
+A program erre választ ad, majd megadható a konvezió iránya:
+(L/l) latin betûsrõl moréra
+VAGY
+(M/m) morzéról latin betûsre.
+Ezt követõn a program elvégzi az átkódolás és a kimenetre való kiíratást,
+majd a felhasználó megadhatja, mely karakter kimeneti darabszámára kiváncsi.
+A program erre választ ad.
+Ezután a program bezárja a kezelt fájlokat, a futás véget ér.
+A kimeneten keletkezett tartalmat csak ezután szabad megcsodálni.
